@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joseph Kim | AI Product and Strategy Operator</title>
+  <meta name="description" content="Founder-operator turning AI capabilities into deployed products and workflows. Case studies: DataPlug and TraceNote.">
+  <link rel="canonical" href="https://jklabs-ai.github.io/">
+  <meta property="og:title" content="Joseph Kim | AI Product and Strategy Operator">
+  <meta property="og:description" content="Founder-operator turning AI capabilities into deployed products and workflows. Case studies: DataPlug and TraceNote.">
+  <meta property="og:url" content="https://jklabs-ai.github.io/">
+  <meta property="og:type" content="website">
+  <!-- TODO: Share image missing. Omit og:image and twitter:image until /assets/img/og-image.png exists at 1200×630. Generate it with scripts/make_og_image.py once Pillow is available, or screenshot assets/img/og-image-template.html. -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Joseph Kim | AI Product and Strategy Operator">
+  <meta name="twitter:description" content="Founder-operator turning AI capabilities into deployed products and workflows. Case studies: DataPlug and TraceNote.">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var theme = null;
+      var source = "system";
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") {
+          theme = saved;
+          source = "manual";
+        }
+      } catch (error) {}
+      if (!theme) {
+        var dark = false;
+        try {
+          dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (error) {}
+        theme = dark ? "dark" : "light";
+      }
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.setAttribute("data-theme-source", source);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joseph Kim",
+    "url": "https://jklabs-ai.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/josephkimhk/",
+      "https://github.com/jklabs-ai"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="column">
+      <div class="header-bar">
+        <a class="brand" href="#top">JK Labs</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"></circle>
+            <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M16.2 3.6A8.2 8.2 0 1 0 20.4 16 6.4 6.4 0 1 1 16.2 3.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="header-sections" aria-label="Page sections">
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#writing" data-nav="writing">Writing</a>
+        <a href="#background" data-nav="background">Background</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <nav class="section-rail" aria-label="Page sections">
+    <a href="#projects" data-nav="projects"><span class="label">Projects</span></a>
+    <a href="#writing" data-nav="writing"><span class="label">Writing</span></a>
+    <a href="#background" data-nav="background"><span class="label">Background</span></a>
+    <a href="#contact" data-nav="contact"><span class="label">Contact</span></a>
+  </nav>
+  <main id="content" tabindex="-1">
+    <section id="top" aria-labelledby="hero-heading">
+      <div class="column">
+        <h1 id="hero-heading" tabindex="-1">Joseph Kim</h1>
+        <p class="lede">Founder-operator turning AI capabilities into deployed products and workflows.</p>
+        <p class="hero-body">I scope the problem, design the product and ship working prototypes, using Cursor and AI as my implementation tools. Then I build the go-to-market and operating systems around them. Previously founded AlgoBlocks, a Draper-backed DeFi aggregator.</p>
+        <div class="actions">
+          <!-- TODO: Resume PDF missing at /assets/resume/Joseph-Kim-Resume.pdf. Restore a primary Resume link that opens the PDF in a new tab, ahead of LinkedIn. Order with the file present: Resume, LinkedIn, GitHub, Email. -->
+          <a class="button button-icon" href="https://www.linkedin.com/in/josephkimhk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span class="icon-in" aria-hidden="true">in</span>
+          </a>
+          <a class="button button-icon" href="https://github.com/jklabs-ai" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a>
+          <a class="button button-icon" href="mailto:0xjosephk@pm.me" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.2" y="5.4" width="17.6" height="13.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+              <path d="M4.2 7.2 12 12.2l7.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="column">
+        <h2 id="projects-heading" tabindex="-1">Selected Projects</h2>
+        <p>Two products I owned end to end, from problem definition to a live deployment. My role on both: product owner. I defined the problem, scope, flows and decisions, and built the code with Cursor under my direction.</p>
+        <article class="project">
+          <h3>DataPlug</h3>
+          <p class="tagline">API monitoring that checks the response, not just the status code.</p>
+          <p class="pill">Live · Development paused</p>
+          <p>A 200 OK with an empty result is still a failed check. DataPlug calls a saved endpoint on demand or about every five minutes, then checks the HTTP status, one JSON rule and a response-time limit. It fires a webhook when a monitor flips between healthy and down.</p>
+          <ul class="tags">
+            <li>Next.js 15</li>
+            <li>React 19</li>
+            <li>TypeScript</li>
+            <li>Tailwind</li>
+            <li>Supabase Auth &amp; Postgres</li>
+            <li>pg_cron</li>
+            <li>Webhooks</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://www.dataplug.dev" target="_blank" rel="noopener noreferrer">Live product</a>
+          </div>
+          <p class="muted">Source code available on request.</p>
+          <!-- TODO: Screenshot missing. When /assets/img/projects/dataplug-1.png exists, add a figure.project-shot with descriptive alt text, width, height, and loading="lazy". Do not request the file before it exists. -->
+          <details>
+            <summary>Read the case study</summary>
+            <div class="case-body">
+              <h4>The problem.</h4>
+              <p>Small engineering teams often only learn an API has failed when a person notices, or when their monitor treats any HTTP 200 as success. DataPlug is for teams that provide APIs their customers depend on, and teams that depend on critical third-party APIs and need to check them against their own requirements.</p>
+              <h4>What it does.</h4>
+              <ul>
+                <li>Save up to five monitors: URL, HTTP method, expected status code.</li>
+                <li>Call private endpoints with a bearer token or an API key header.</li>
+                <li>Require one JSON path (e.g. <code>data.status</code>) to exist, or an array to be non-empty.</li>
+                <li>Fail the check if the response is slower than a 1-15 second limit.</li>
+                <li>Run checks manually or on a ~5-minute schedule; view the latest result and recent history (healthy, down, timeout, status code, latency, error).</li>
+                <li>Send a webhook when a monitor changes between healthy and down.</li>
+              </ul>
+              <h4>Key product decisions.</h4>
+              <ol>
+                <li>Check the response, not only the status code. One JSON path and one check type keep setup to a few fields. Trade-off: a passing check doesn't prove the payload is business-correct.</li>
+                <li>Active checks, no agent. DataPlug sends its own requests, so there's nothing to install. Trade-off: failures that only real users hit can be missed.</li>
+                <li>Alert on state change only. Webhooks fire on <code>monitor.failed</code> and <code>monitor.recovered</code>, not on every failed run, so no alert spam. A failed webhook never fails the check.</li>
+                <li>A narrow free MVP. Five monitors, five-minute checks, a short history, $0, no credit card. Founding-customer pricing was an email conversation, not a checkout. Easy to try; no in-app revenue flow.</li>
+                <li>Scheduling in the database. A Supabase <code>pg_cron</code> job calls a secured app route about every five minutes, instead of relying on the host's cron.</li>
+              </ol>
+              <h4>How it's built.</h4>
+              <p>One Next.js app serves the marketing site, dashboard and the check worker. Supabase handles accounts (Auth) and stores monitors and history (Postgres with row-level security). A database job wakes up every five minutes and calls the deployed app with a shared secret. Local unit tests cover the core decision logic (monitor limits, check timing, latency rounding, auth flows): 72 passing in the documented run.</p>
+              <h4>Status.</h4>
+              <p>Live at dataplug.dev. Completed the Launch incubation programme. New commercial development is paused; the repository is kept as the record of the MVP.</p>
+            </div>
+          </details>
+        </article>
+        <article class="project">
+          <h3>TraceNote</h3>
+          <p class="tagline">Voice-first contact capture for event networking, inside Telegram.</p>
+          <p class="pill">Live private beta · Paused</p>
+          <p>Scan a contact's Telegram QR code and record a short voice note. TraceNote transcribes it, uses AI to extract structured CRM fields and a follow-up draft, and saves a searchable, exportable record. It never sends a message for you.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>python-telegram-bot</li>
+            <li>Google Cloud Speech-to-Text</li>
+            <li>DeepSeek LLM</li>
+            <li>SQLite</li>
+            <li>Telegram Mini App</li>
+            <li>Railway</li>
+            <li>Vercel</li>
+          </ul>
+          <div class="actions">
+            <a class="button" href="https://tracenote.app" target="_blank" rel="noopener noreferrer">Website</a>
+            <a class="button" href="https://t.me/traceNotebot" target="_blank" rel="noopener noreferrer">Bot</a>
+          </div>
+          <p class="muted">Source code available on request.</p>
+          <!-- TODO: Screenshot missing. When /assets/img/projects/tracenote-1.png exists, add a figure.project-shot with descriptive alt text, width, height, and loading="lazy". Do not request the file before it exists. -->
+          <details>
+            <summary>Read the case study</summary>
+            <div class="case-body">
+              <h4>The problem.</h4>
+              <p>Conferences produce high-intent contacts but weak follow-through. Details live in memory, notes apps or scattered chats; CRM entry is slow; a personal follow-up is easy to put off. TraceNote targets the seconds after a handshake: minimal taps, voice-first, structured output, so follow-up can happen the same day.</p>
+              <h4>Who it's for.</h4>
+              <p>Business development, partnerships and sales people who network at conferences and side events, and solo operators who want a lightweight personal CRM inside Telegram rather than a full CRM setup.</p>
+              <h4>How it works.</h4>
+              <ol>
+                <li>Tap "Scan Contact QR" in the bot; a Telegram Mini App reads the contact's profile QR.</li>
+                <li>Send a voice note about the conversation.</li>
+                <li>Google Speech-to-Text transcribes it, with phrase hints for names, companies and events.</li>
+                <li>An LLM returns strict JSON: name, company, role, where you met, context, follow-up action, reminder date and a draft message.</li>
+                <li>The record is cleaned, saved and confirmed in chat. Search it, list contacts or export to CSV.</li>
+                <li>If there's a Telegram handle and a draft, review it with Edit, Copy or Open Chat. You send it yourself.</li>
+              </ol>
+              <h4>Key product decisions.</h4>
+              <ol>
+                <li>Telegram-first, not a standalone app. Users already message contacts there; nothing to install. Trade-off: bound to Telegram's UX and API limits.</li>
+                <li>Voice note, not a typed form. Fastest capture while walking between booths. Trade-off: transcription and extraction errors, handled with phrase hints and prompt rules (e.g. resolving "next Friday" to a real date).</li>
+                <li>Structured extraction, not a chatbot. The model must return a fixed JSON schema, which makes records searchable and exportable.</li>
+                <li>No auto-send. Drafts are suggestions with copy and open-chat shortcuts, preserving trust and user control at the cost of a few extra taps.</li>
+                <li>Simple infrastructure. SQLite scoped per user and an optional user whitelist for private beta, instead of a managed database and a full auth system.</li>
+              </ol>
+              <h4>How it's built.</h4>
+              <p>A Python bot on Railway, a static QR-scanning Mini App on Vercel, Google Cloud Speech-to-Text for transcription, DeepSeek for structured extraction, and SQLite for contacts and lightweight product analytics (an owner-only funnel view).</p>
+              <h4>What I learned.</h4>
+              <p>The pain was weaker than I assumed. Many field BD people capture informally: the strongest make mental notes or write things up in a notebook or back at the hotel, and some already use dedicated capture devices that sync to their CRM. A new capture habit inside Telegram wasn't a strong enough pull, which points to an ICP or pain-intensity mismatch. Next time I'd test how often and how badly the problem hurts before building the full loop.</p>
+              <h4>Status.</h4>
+              <p>The bot and site are live in private beta. Development is paused.</p>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+    <section id="writing" aria-labelledby="writing-heading">
+      <div class="column">
+        <h2 id="writing-heading" tabindex="-1">Writing</h2>
+        <p>Notes on AI deployment, product and operating strategy.</p>
+        <p class="muted" id="writing-empty">Writing is on the way. For now, I post on <a href="https://www.linkedin.com/in/josephkimhk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        <div class="writing-grid" id="writing-grid" hidden></div>
+      </div>
+    </section>
+    <section id="background" aria-labelledby="background-heading">
+      <div class="column">
+        <h2 id="background-heading" tabindex="-1">Background</h2>
+        <p>Founder, operator and strategy lead across digital assets, fintech and AI.</p>
+        <ul class="timeline">
+          <li><strong>Selvara</strong> · Founder · Independent advisory practice: fundraising readiness and strategy for early-stage Web3, fintech and insurtech founders.</li>
+          <li><strong>AlgoBlocks</strong> · Founder · Built and led a Draper-backed DeFi aggregator from scratch: USD 2.3M+ raised from Draper and tier-one crypto VCs, 120,000+ users, 50+ protocol and marketing partnerships. UC Berkeley SkyDeck.</li>
+          <li><strong>BC Group (now rebranded as OSL)</strong> · VP and Senior Advisor, Hong Kong · Evaluated 300+ blockchain startups and helped facilitate USD 220M+ in institutional capital.</li>
+          <li><strong>Earlier</strong> · Strategy, research, transaction advisory and private equity investment roles at Control Risks, JLL and Ajia Partners (backed by Goldman Sachs, Dutch, Japanese and Australian pensions funds and superannuation funds).</li>
+          <li><strong>Education</strong> · MBA, Hong Kong University of Science and Technology · MFin, University of Hong Kong · Bachelor's degree, University of California, Berkeley.</li>
+        </ul>
+        <!-- TODO: Resume PDF missing. Restore “Full details in my resume.” as a link to /assets/resume/Joseph-Kim-Resume.pdf once that file is added. -->
+      </div>
+    </section>
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="column">
+        <h2 id="contact-heading" tabindex="-1">Contact</h2>
+        <p>The fastest way to reach me is email or LinkedIn.</p>
+        <div class="actions">
+          <a class="button button-icon" href="mailto:0xjosephk@pm.me" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.2" y="5.4" width="17.6" height="13.2" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+              <path d="M4.2 7.2 12 12.2l7.8-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="button button-icon" href="https://www.linkedin.com/in/josephkimhk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span class="icon-in" aria-hidden="true">in</span>
+          </a>
+          <a class="button button-icon" href="https://github.com/jklabs-ai" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a>
+          <!-- TODO: Resume PDF missing. Restore the Resume link to /assets/resume/Joseph-Kim-Resume.pdf beside Email, LinkedIn, and GitHub. -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="column">
+      <p class="flow-back"><a href="#top">Back to top</a></p>
+      <div class="footer-note">
+        <p class="fine-print fine-print-note">jklabs is my personal build handle for AI prototypes, not a company.</p>
+        <p class="fine-print">· Last updated November 2026 · © 2026 Joseph Kim</p>
+      </div>
+    </div>
+  </footer>
+  <a class="rocket" id="rocket" href="#top" hidden>
+    <svg viewBox="0 0 24 24" width="33" height="33" aria-hidden="true">
+      <path d="M12 3.2c2 2.2 2.8 5 2.8 7.6 0 1.2-.7 2.5-1.5 3.2V18L12 20.2 10.7 18v-4c-.8-.7-1.5-2-1.5-3.2 0-2.6.8-5.4 2.8-7.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+      <circle cx="12" cy="10.2" r="1.05" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+      <path d="M9.2 15.2 7.2 18.4M14.8 15.2 16.8 18.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+    </svg>
+    <span class="visually-hidden">Back to top</span>
+  </a>
+  <script src="/main.js"></script>
+</body>
+</html>
