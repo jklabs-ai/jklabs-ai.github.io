@@ -68,7 +68,7 @@ Until that file exists, those links stay omitted so the site does not advertise 
 
 ## Share image
 
-`assets/img/og-image.png` is not in the repo yet, and the page does not reference it. When [Pillow](https://python-pillow.org/) is already installed, run:
+`assets/img/og-image.png` is a 1200×630 placeholder: a snapshot of the hero. The page points Open Graph and Twitter at it. To replace it with the plain name card, and [Pillow](https://python-pillow.org/) is already installed, run:
 
 ```bash
 python3 scripts/make_og_image.py
