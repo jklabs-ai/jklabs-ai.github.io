@@ -122,6 +122,17 @@
           <h3>DataPlug</h3>
           <p class="tagline">API monitoring that checks the response, not just the status code.</p>
           <p class="pill">Live · Development paused</p>
+          <!-- Placeholder until /assets/img/projects/dataplug-1.png exists. Replace .shot-placeholder with an img: descriptive alt, width, height, loading="lazy". -->
+          <figure class="project-shot">
+            <div class="shot-placeholder" role="img" aria-label="DataPlug preview">
+              <svg class="shot-mark" viewBox="0 0 32 32" aria-hidden="true">
+                <rect x="3.5" y="6.5" width="25" height="19" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+                <circle cx="11" cy="13" r="1.5" fill="currentColor"></circle>
+                <path d="M7.5 21.5 13 16l4 4 2.5-2.2 5 3.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+              <p>Preview</p>
+            </div>
+          </figure>
           <p>A 200 OK with an empty result is still a failed check. DataPlug calls a saved endpoint on demand or about every five minutes, then checks the HTTP status, one JSON rule and a response-time limit. It fires a webhook when a monitor flips between healthy and down.</p>
           <ul class="tags">
             <li>Next.js 15</li>
@@ -136,7 +147,6 @@
             <a class="button" href="https://www.dataplug.dev" target="_blank" rel="noopener noreferrer">Live product</a>
           </div>
           <p class="muted">Source code available on request.</p>
-          <!-- TODO: Screenshot missing. When /assets/img/projects/dataplug-1.png exists, add a figure.project-shot with descriptive alt text, width, height, and loading="lazy". Do not request the file before it exists. -->
           <details>
             <summary>Read the case study</summary>
             <div class="case-body">
@@ -162,7 +172,7 @@
               <h4>How it's built.</h4>
               <p>One Next.js app serves the marketing site, dashboard and the check worker. Supabase handles accounts (Auth) and stores monitors and history (Postgres with row-level security). A database job wakes up every five minutes and calls the deployed app with a shared secret. Local unit tests cover the core decision logic (monitor limits, check timing, latency rounding, auth flows): 72 passing in the documented run.</p>
               <h4>Status.</h4>
-              <p>Live at dataplug.dev. Completed the Launch incubation programme. New commercial development is paused; the repository is kept as the record of the MVP.</p>
+              <p>Live at dataplug.dev. Completed the Lauunch incubation programme hosted by WNJ Ventures and Hong Kong Science Park. New commercial development is paused; the repository is kept as the record of the MVP.</p>
             </div>
           </details>
         </article>
@@ -170,6 +180,17 @@
           <h3>TraceNote</h3>
           <p class="tagline">Voice-first contact capture for event networking, inside Telegram.</p>
           <p class="pill">Live private beta · Paused</p>
+          <!-- Placeholder until /assets/img/projects/tracenote-1.png exists. Replace .shot-placeholder with an img: descriptive alt, width, height, loading="lazy". -->
+          <figure class="project-shot">
+            <div class="shot-placeholder" role="img" aria-label="TraceNote preview">
+              <svg class="shot-mark" viewBox="0 0 32 32" aria-hidden="true">
+                <rect x="3.5" y="6.5" width="25" height="19" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+                <circle cx="11" cy="13" r="1.5" fill="currentColor"></circle>
+                <path d="M7.5 21.5 13 16l4 4 2.5-2.2 5 3.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></path>
+              </svg>
+              <p>Preview</p>
+            </div>
+          </figure>
           <p>Scan a contact's Telegram QR code and record a short voice note. TraceNote transcribes it, uses AI to extract structured CRM fields and a follow-up draft, and saves a searchable, exportable record. It never sends a message for you.</p>
           <ul class="tags">
             <li>Python</li>
@@ -186,7 +207,6 @@
             <a class="button" href="https://t.me/traceNotebot" target="_blank" rel="noopener noreferrer">Bot</a>
           </div>
           <p class="muted">Source code available on request.</p>
-          <!-- TODO: Screenshot missing. When /assets/img/projects/tracenote-1.png exists, add a figure.project-shot with descriptive alt text, width, height, and loading="lazy". Do not request the file before it exists. -->
           <details>
             <summary>Read the case study</summary>
             <div class="case-body">
@@ -234,6 +254,7 @@
       <div class="column">
         <h2 id="background-heading" tabindex="-1">Background</h2>
         <p>Founder, operator and strategy lead across digital assets, fintech and AI.</p>
+        <p>Previous advisory, capital markets research, and private equity investing background before pivoting into tech.</p>
         <ul class="timeline">
           <li><strong>Selvara</strong> · Founder · Independent advisory practice: fundraising readiness and strategy for early-stage Web3, fintech and insurtech founders.</li>
           <li><strong>AlgoBlocks</strong> · Founder · Built and led a Draper-backed DeFi aggregator from scratch: USD 2.3M+ raised from Draper and tier-one crypto VCs, 120,000+ users, and 50+ protocol and marketing partnerships. Managed a globally remote team of up to 12, mainly engineers. UC Berkeley SkyDeck. Pad 13. Binance MVB Incubation Cohort 4.</li>

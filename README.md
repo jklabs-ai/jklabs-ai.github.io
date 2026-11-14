@@ -46,7 +46,7 @@ Without JavaScript, colours follow the system preference and the theme control i
 
 ## Add a project screenshot
 
-Put the file in `assets/img/projects/`, then add a figure in `index.html` where the matching TODO comment is. Do not point an `img` at a file that is not there yet.
+Each project card already has a preview frame under its status line. Put the file in `assets/img/projects/`, then replace that card’s `.shot-placeholder` with an image. Do not point an `img` at a file that is not there yet.
 
 ```html
 <figure class="project-shot">
@@ -54,7 +54,7 @@ Put the file in `assets/img/projects/`, then add a figure in `index.html` where 
 </figure>
 ```
 
-Use `tracenote-1.png` for TraceNote. If a listed image fails to load, the script removes that figure. Write alt text that describes the picture.
+Use `tracenote-1.png` for TraceNote. The frame uses the card’s 22px corner radius. If a listed image fails to load, the script removes that figure. Write alt text that describes the picture.
 
 ## Add the resume
 
