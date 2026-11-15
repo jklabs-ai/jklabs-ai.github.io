@@ -1,8 +1,9 @@
 (function () {
-  var SECTIONS = ["projects", "writing", "background", "contact"];
+  var SECTIONS = ["projects", "capabilities", "writing", "background", "contact"];
   var HEADINGS = {
     top: "hero-heading",
     projects: "projects-heading",
+    capabilities: "capabilities-heading",
     writing: "writing-heading",
     background: "background-heading",
     contact: "contact-heading"
@@ -163,6 +164,18 @@
     });
   }
 
+  function revealHeaderLink(link) {
+    var nav = link.closest(".header-sections");
+    if (!nav) return;
+    var linkBox = link.getBoundingClientRect();
+    var navBox = nav.getBoundingClientRect();
+    var pad = 6;
+    var delta = 0;
+    if (linkBox.left - pad < navBox.left) delta = linkBox.left - pad - navBox.left;
+    else if (linkBox.right + pad > navBox.right) delta = linkBox.right + pad - navBox.right;
+    if (delta !== 0) nav.scrollLeft += delta;
+  }
+
   function initSectionLinks() {
     var links = document.querySelectorAll('a[href^="#"]');
     for (var i = 0; i < links.length; i += 1) {
@@ -177,6 +190,12 @@
           }
           focusHeading(href.slice(1));
         }, 0);
+      });
+    }
+    var headerLinks = document.querySelectorAll(".header-sections a");
+    for (var j = 0; j < headerLinks.length; j += 1) {
+      headerLinks[j].addEventListener("focus", function (event) {
+        revealHeaderLink(event.currentTarget);
       });
     }
   }

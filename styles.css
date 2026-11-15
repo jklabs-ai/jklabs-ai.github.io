@@ -651,6 +651,27 @@ h2[tabindex="-1"] {
   border-top: 1px solid var(--border);
 }
 
+#capabilities {
+  scroll-margin-top: calc(var(--header-h) + 8px);
+}
+
+#capabilities .capability {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--card-shadow);
+  padding: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+#capabilities .capability p {
+  margin-bottom: 0.7rem;
+}
+
+#capabilities .tags {
+  margin-bottom: 0;
+}
+
 .site-footer {
   margin-top: 3rem;
   padding-bottom: max(16px, env(safe-area-inset-bottom));
@@ -763,6 +784,10 @@ html.enhanced .rocket {
 
   .project {
     padding: 1.25rem 1.5rem 0;
+  }
+
+  #capabilities .capability {
+    padding: 1.25rem 1.5rem;
   }
 
   .writing-grid {
