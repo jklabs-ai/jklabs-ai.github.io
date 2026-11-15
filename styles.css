@@ -731,6 +731,11 @@ html.enhanced .rocket {
   display: inline-flex;
 }
 
+.rocket.is-launching {
+  z-index: 60;
+  pointer-events: none;
+}
+
 .rocket svg {
   width: 33px;
   height: 33px;

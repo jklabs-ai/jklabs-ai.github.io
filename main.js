@@ -124,14 +124,53 @@
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
-  function goTop(behavior) {
-    var heading = document.getElementById("hero-heading");
+  function heroScrollTarget() {
+    var section = document.getElementById("top");
+    if (!section) return 0;
+    var margin = parseFloat(window.getComputedStyle(section).scrollMarginTop) || 0;
+    var target = section.getBoundingClientRect().top + window.scrollY - margin;
+    return target > 0 ? target : 0;
+  }
+
+  function landAtHero() {
+    document.documentElement.style.scrollBehavior = "";
+    window.scrollTo({ top: heroScrollTarget(), behavior: "auto" });
     if (window.location.hash !== "#top") {
-      window.location.hash = "#top";
-    } else {
-      window.scrollTo({ top: 0, behavior: behavior });
+      window.history.pushState(null, "", "#top");
     }
-    focusElement(heading);
+    focusElement(document.getElementById("hero-heading"));
+    launching = false;
+    rocket.hidden = true;
+    rocket.classList.remove("is-launching");
+    rocket.style.transform = "";
+  }
+
+  function flyHome() {
+    var startY = window.scrollY;
+    var target = heroScrollTarget();
+    var travel = rocket.getBoundingClientRect().top + rocket.offsetHeight + 16;
+    var duration = 860;
+    var started = window.performance.now();
+    document.documentElement.style.scrollBehavior = "auto";
+    rocket.classList.add("is-launching");
+
+    function frame(now) {
+      var t = (now - started) / duration;
+      if (t > 1) t = 1;
+      var eased = 1 - Math.pow(1 - t, 3);
+      window.scrollTo({
+        top: startY + (target - startY) * eased,
+        behavior: "auto"
+      });
+      rocket.style.transform = "translate3d(0, " + (-travel * eased).toFixed(2) + "px, 0)";
+      if (t < 1) {
+        window.requestAnimationFrame(frame);
+        return;
+      }
+      landAtHero();
+    }
+
+    window.requestAnimationFrame(frame);
   }
 
   function initRocket() {
@@ -157,9 +196,8 @@
       rocketSvg.classList.add("is-shaking");
       window.setTimeout(function () {
         rocketSvg.classList.remove("is-shaking");
-        launching = false;
-        goTop(reducedMotion() ? "auto" : "smooth");
-        updateRocket();
+        if (!launching) return;
+        flyHome();
       }, 160);
     });
   }
