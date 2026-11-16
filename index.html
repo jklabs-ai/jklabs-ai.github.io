@@ -124,17 +124,17 @@
           <h3>DataPlug</h3>
           <p class="tagline">API monitoring that checks the response, not just the status code.</p>
           <p class="pill">Live · Development paused</p>
-          <!-- Placeholder until /assets/img/projects/dataplug-1.png exists. Replace .shot-placeholder with an img: descriptive alt, width, height, loading="lazy". -->
-          <figure class="project-shot">
-            <div class="shot-placeholder" role="img" aria-label="DataPlug preview">
-              <svg class="shot-mark" viewBox="0 0 32 32" aria-hidden="true">
-                <rect x="3.5" y="6.5" width="25" height="19" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-                <circle cx="11" cy="13" r="1.5" fill="currentColor"></circle>
-                <path d="M7.5 21.5 13 16l4 4 2.5-2.2 5 3.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></path>
-              </svg>
-              <p>Preview</p>
-            </div>
+          <figure class="project-shot project-shot-portrait">
+            <a class="shot-open" href="/assets/img/projects/dataplug-1.png" data-shot-open="dataplug-shot">
+              <img src="/assets/img/projects/dataplug-1.png" alt="DataPlug dashboard with a monitor down because status 401 did not match the expected 200. Select to view the full screenshot." width="499" height="956" loading="lazy">
+            </a>
           </figure>
+          <dialog class="shot-dialog" id="dataplug-shot" aria-label="DataPlug screenshot">
+            <form method="dialog">
+              <button type="submit" class="button">Close</button>
+            </form>
+            <img src="/assets/img/projects/dataplug-1.png" alt="" width="499" height="956">
+          </dialog>
           <p>A 200 OK with an empty result is still a failed check. DataPlug calls a saved endpoint on demand or about every five minutes, then checks the HTTP status, one JSON rule and a response-time limit. It fires a webhook when a monitor flips between healthy and down.</p>
           <ul class="tags">
             <li>Next.js 15</li>
@@ -181,7 +181,7 @@
           <h3>TraceNote</h3>
           <p class="tagline">Voice-first contact capture for event networking, inside Telegram.</p>
           <p class="pill">Live private beta · Paused</p>
-          <!-- Placeholder until /assets/img/projects/tracenote-1.png exists. Replace .shot-placeholder with an img: descriptive alt, width, height, loading="lazy". -->
+          <!-- Empty window until /assets/img/projects/tracenote-1.png exists. Keep this window and center that image inside it, the same way as DataPlug. -->
           <figure class="project-shot">
             <div class="shot-placeholder" role="img" aria-label="TraceNote preview">
               <svg class="shot-mark" viewBox="0 0 32 32" aria-hidden="true">

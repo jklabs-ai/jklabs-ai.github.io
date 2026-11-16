@@ -1,0 +1,16 @@
+---
+description: Project card previews use the shared wide window
+alwaysApply: true
+---
+
+# Project preview windows
+
+Every project card preview uses the wide window, including future cards and TraceNote.
+
+- The window is full card width, 16:10 from 768px up, 1px `var(--border)`, 22px radius, and `var(--placeholder-bg)`.
+- Center the screenshot inside that window and keep its real ratio. Do not stretch it, crop it, or replace the window with a bare image.
+- Below 768px the window stays full width and grows with the image. Cap the image at `min(100%, 17rem)` by `26rem` so a portrait stays readable.
+- The window is the frame. Do not add a second border around the image.
+- Clicking the window opens the existing screenshot dialog at the real ratio. Without JS, the link opens the image file.
+- An empty card keeps `.shot-placeholder`, which is that same window, until its image exists.
+- Blur personal emails and other private details in a screenshot before adding it.

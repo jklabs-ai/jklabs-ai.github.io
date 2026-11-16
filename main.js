@@ -269,6 +269,25 @@
     }
   }
 
+  function initShotDialogs() {
+    var links = document.querySelectorAll("[data-shot-open]");
+    for (var i = 0; i < links.length; i += 1) {
+      links[i].addEventListener("click", function (event) {
+        var id = event.currentTarget.getAttribute("data-shot-open");
+        var dialog = id ? document.getElementById(id) : null;
+        if (!dialog || typeof dialog.showModal !== "function") return;
+        event.preventDefault();
+        dialog.showModal();
+      });
+    }
+    var dialogs = document.querySelectorAll("dialog.shot-dialog");
+    for (var j = 0; j < dialogs.length; j += 1) {
+      dialogs[j].addEventListener("click", function (event) {
+        if (event.target === event.currentTarget) event.currentTarget.close();
+      });
+    }
+  }
+
   function isHttpUrl(value) {
     if (typeof value !== "string") return false;
     try {
@@ -423,6 +442,7 @@
   initSectionLinks();
   initRocket();
   initShots();
+  initShotDialogs();
   document.documentElement.classList.add("enhanced");
   initObservers();
   initWriting();
