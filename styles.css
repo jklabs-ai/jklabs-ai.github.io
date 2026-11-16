@@ -434,7 +434,7 @@ main > section + section {
   margin-top: 4rem;
 }
 
-#top,
+#hero,
 #projects,
 #writing,
 #background,
@@ -451,15 +451,15 @@ h2[tabindex="-1"] {
   margin-bottom: 1rem;
 }
 
-#top h1 {
+#hero h1 {
   margin-bottom: 1.25rem;
 }
 
-#top .lede {
+#hero .lede {
   margin-bottom: 1.65rem;
 }
 
-#top .hero-body {
+#hero .hero-body {
   margin-bottom: 2.5rem;
 }
 
@@ -824,8 +824,24 @@ html.enhanced .rocket {
 
 .rocket svg {
   width: 33px;
-  height: 33px;
+  height: calc(33px * 29 / 24);
   display: block;
+}
+
+.rocket-plume {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center top;
+}
+
+.rocket svg.is-shaking .rocket-plume {
+  animation: rocket-plume 160ms linear 1;
+}
+
+@keyframes rocket-plume {
+  0% { opacity: 0; transform: scaleY(0.35); }
+  40% { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 1; transform: scaleY(1); }
 }
 
 .visually-hidden {

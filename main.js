@@ -1,7 +1,7 @@
 (function () {
   var SECTIONS = ["projects", "capabilities", "writing", "background", "contact"];
   var HEADINGS = {
-    top: "hero-heading",
+    hero: "hero-heading",
     projects: "projects-heading",
     capabilities: "capabilities-heading",
     writing: "writing-heading",
@@ -125,7 +125,7 @@
   }
 
   function heroScrollTarget() {
-    var section = document.getElementById("top");
+    var section = document.getElementById("hero");
     if (!section) return 0;
     var margin = parseFloat(window.getComputedStyle(section).scrollMarginTop) || 0;
     var target = section.getBoundingClientRect().top + window.scrollY - margin;
@@ -135,8 +135,8 @@
   function landAtHero() {
     document.documentElement.style.scrollBehavior = "";
     window.scrollTo({ top: heroScrollTarget(), behavior: "auto" });
-    if (window.location.hash !== "#top") {
-      window.history.pushState(null, "", "#top");
+    if (window.location.hash !== "#hero") {
+      window.history.pushState(null, "", "#hero");
     }
     focusElement(document.getElementById("hero-heading"));
     launching = false;
@@ -182,7 +182,7 @@
     rocket.addEventListener("click", function (event) {
       if (reducedMotion()) {
         window.setTimeout(function () {
-          focusHeading("top");
+          focusHeading("hero");
         }, 0);
         return;
       }
