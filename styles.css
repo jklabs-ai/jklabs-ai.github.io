@@ -834,6 +834,7 @@ main,
   margin-top: 1.25rem;
 }
 
+/* When a note has a full article, the body scrolls inside this box. Keep Close outside that scroll. */
 .writing-dialog {
   width: min(32rem, calc(100vw - 2rem));
   max-height: calc(100vh - 2rem);
