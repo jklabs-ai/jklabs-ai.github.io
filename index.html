@@ -181,17 +181,17 @@
           <h3>TraceNote</h3>
           <p class="tagline">Voice-first contact capture for event networking, inside Telegram.</p>
           <p class="pill">Live private beta · Paused</p>
-          <!-- Empty window until /assets/img/projects/tracenote-1.png exists. Keep this window and center that image inside it, the same way as DataPlug. -->
-          <figure class="project-shot">
-            <div class="shot-placeholder" role="img" aria-label="TraceNote preview">
-              <svg class="shot-mark" viewBox="0 0 32 32" aria-hidden="true">
-                <rect x="3.5" y="6.5" width="25" height="19" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-                <circle cx="11" cy="13" r="1.5" fill="currentColor"></circle>
-                <path d="M7.5 21.5 13 16l4 4 2.5-2.2 5 3.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></path>
-              </svg>
-              <p>Preview</p>
-            </div>
+          <figure class="project-shot project-shot-portrait">
+            <a class="shot-open" href="/assets/img/projects/tracenote-1.png" data-shot-open="tracenote-shot">
+              <img src="/assets/img/projects/tracenote-1.png" alt="TraceNote chat where a voice note becomes a saved contact, with a follow-up draft and buttons to edit, copy, or open the chat. Select to view the full screenshot." width="700" height="1080" loading="lazy">
+            </a>
           </figure>
+          <dialog class="shot-dialog" id="tracenote-shot" aria-label="TraceNote screenshot">
+            <form method="dialog">
+              <button type="submit" class="button">Close</button>
+            </form>
+            <img src="/assets/img/projects/tracenote-1.png" alt="" width="700" height="1080">
+          </dialog>
           <p>Scan a contact's Telegram QR code and record a short voice note. TraceNote transcribes it, uses AI to extract structured CRM fields and a follow-up draft, and saves a searchable, exportable record. It never sends a message for you.</p>
           <ul class="tags">
             <li>Python</li>
