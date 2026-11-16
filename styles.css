@@ -755,6 +755,12 @@ h2[tabindex="-1"] {
   padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
 
+@media (max-width: 940px) {
+  .footer-note {
+    padding-inline-end: 78px;
+  }
+}
+
 .footer-note {
   min-height: 66px;
   display: flex;
@@ -771,6 +777,8 @@ h2[tabindex="-1"] {
   color: var(--text-secondary);
   font-size: 0.875rem;
   margin: 0;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .fine-print + .fine-print {
