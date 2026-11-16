@@ -1,1 +1,45 @@
-[]
+[
+  {
+    "id": "prototype-to-workflow",
+    "title": "Where an AI prototype becomes a workflow",
+    "date": "2026-11-12",
+    "summary": "A demo that only its author can run is still a prototype. The useful question is who runs it the second week, and what work it replaces.",
+    "status": "coming-soon"
+  },
+  {
+    "id": "test-the-pain",
+    "title": "Test the pain before you build the loop",
+    "date": "2026-10-27",
+    "summary": "How often the job happens, and how costly it is when it goes wrong, decides whether the tool is worth building.",
+    "status": "coming-soon"
+  },
+  {
+    "id": "questions-before-a-model",
+    "title": "Questions to ask before you add a model",
+    "date": "2026-10-08",
+    "summary": "Who owns the output, what happens when it is wrong, and how a person checks it before it reaches anyone else.",
+    "status": "coming-soon"
+  },
+  {
+    "id": "deployment-not-demos",
+    "title": "A private workflow beats a public demo",
+    "date": "2026-09-15",
+    "summary": "Two uses a week inside the team is stronger evidence than a walkthrough that nobody repeats.",
+    "status": "coming-soon"
+  },
+  {
+    "id": "first-user",
+    "title": "Start with the person who already does the job",
+    "date": "2026-08-19",
+    "summary": "The first user should be the one doing the work by hand today, not the person who requested the tool.",
+    "status": "coming-soon"
+  },
+  {
+    "id": "stop-a-private-beta",
+    "title": "When a private beta should stop",
+    "date": "2026-07-02",
+    "summary": "A paused beta is a result. These are the signs that people are not pulling the loop hard enough to keep building.",
+    "status": "coming-soon"
+  }
+]
+

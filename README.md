@@ -24,25 +24,41 @@ The first visit follows the operating system colour scheme. The header control s
 
 Without JavaScript, colours follow the system preference and the theme control is hidden. Section links in the header stay available.
 
-## Add a post
+## Update a writing card
 
-1. Add one object to `data/posts.json`. Keep the file as a JSON array, newest or oldest order does not matter; the page sorts newest first.
-2. Optionally put an image in `assets/img/posts/` and set `image` to that root path, for example `"/assets/img/posts/note.png"`.
-3. Commit both files when you are ready to publish.
+Each card is one object in `data/posts.json`. The page sorts by `date`, newest first, and shows three cards. Load more reveals the rest. Show less returns to those three. Refer to a card by its `id`.
+
+Current placeholders:
+
+| id | date |
+| --- | --- |
+| `prototype-to-workflow` | 2026-11-12 |
+| `test-the-pain` | 2026-10-27 |
+| `questions-before-a-model` | 2026-10-08 |
+| `deployment-not-demos` | 2026-09-15 |
+| `first-user` | 2026-08-19 |
+| `stop-a-private-beta` | 2026-07-02 |
+
+To change a title, teaser, or date, edit that object. `summary` is the sentence under the title. `date` is `YYYY-MM-DD` and is shown as a date-only value. `id` stays the same when the words change, so later edits still find the same note.
+
+A coming-soon card has `"status": "coming-soon"` and no `url`. Clicking it opens a short dialog. Its preview is drawn by the page, with the word “placeholder” across it.
+
+When the note is published, change that same object:
 
 ```json
 {
-  "title": "Note title",
+  "id": "prototype-to-workflow",
+  "title": "Where an AI prototype becomes a workflow",
+  "date": "2026-11-12",
+  "summary": "One line summary.",
+  "status": "published",
   "url": "https://www.linkedin.com/in/josephkimhk/",
   "platform": "LinkedIn",
-  "date": "2026-11-14",
-  "summary": "One line summary.",
-  "image": "/assets/img/posts/note.png",
-  "featured": false
+  "image": "/assets/img/posts/prototype-to-workflow.png"
 }
 ```
 
-`platform` is a label such as LinkedIn, Medium, Substack, X, or Site. `date` is `YYYY-MM-DD` and is shown as a date-only value. `url` must be `http` or `https`. `image` must be a local file under `/assets/img/posts/`. `featured` is reserved and does not change order. An empty array shows: “Writing is on the way. For now, I post on LinkedIn.”
+`url` must be `http` or `https`. `platform` is a label such as LinkedIn, Medium, Substack, X, or Site. `image` is optional and must be a local file under `/assets/img/posts/`. A published card opens that URL in a new tab. `featured` is reserved and does not change order. An empty array shows: “Writing is on the way. For now, I post on LinkedIn.”
 
 ## Add a project screenshot
 

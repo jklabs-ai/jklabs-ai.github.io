@@ -302,6 +302,19 @@
     return typeof value === "string" && /^\/assets\/img\/posts\/[A-Za-z0-9._-]+$/.test(value);
   }
 
+  function isPostId(value) {
+    return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+  }
+
+  function svgNode(name, attrs) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", name);
+    var key;
+    for (key in attrs) {
+      if (Object.prototype.hasOwnProperty.call(attrs, key)) node.setAttribute(key, attrs[key]);
+    }
+    return node;
+  }
+
   function formatDate(iso) {
     var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
     if (!match) return "";
@@ -318,26 +331,36 @@
 
   function validatePost(entry) {
     if (!entry || typeof entry !== "object") return null;
+    if (!isPostId(entry.id)) return null;
     if (typeof entry.title !== "string" || entry.title.trim() === "") return null;
-    if (!isHttpUrl(entry.url)) return null;
-    if (typeof entry.platform !== "string" || entry.platform.trim() === "") return null;
     if (typeof entry.summary !== "string" || entry.summary.trim() === "") return null;
     var formatted = formatDate(entry.date);
     if (!formatted) return null;
     if (entry.featured != null && typeof entry.featured !== "boolean") return null;
+    var status = entry.status == null || entry.status === "" ? "published" : entry.status;
+    if (status !== "coming-soon" && status !== "published") return null;
+    var url = "";
+    var platform = "";
+    if (status === "published") {
+      if (!isHttpUrl(entry.url)) return null;
+      if (typeof entry.platform !== "string" || entry.platform.trim() === "") return null;
+      url = entry.url;
+      platform = entry.platform.trim();
+    }
     var image = "";
     if (entry.image != null && entry.image !== "") {
-      if (!isLocalPostImage(entry.image)) image = "";
-      else image = entry.image;
+      if (isLocalPostImage(entry.image)) image = entry.image;
     }
     return {
+      id: entry.id,
       title: entry.title.trim(),
-      url: entry.url,
-      platform: entry.platform.trim(),
+      url: url,
+      platform: platform,
       date: entry.date,
       formatted: formatted,
       summary: entry.summary.trim(),
-      image: image
+      image: image,
+      status: status
     };
   }
 
@@ -350,13 +373,77 @@
     return block;
   }
 
+  function createCover(post) {
+    var seed = 0;
+    var i;
+    for (i = 0; i < post.id.length; i += 1) seed += post.id.charCodeAt(i);
+    var titleWidth = 96 + (seed % 48);
+    var lines = [150 + (seed % 40), 132 + (seed % 28), 118 + ((seed * 3) % 36)];
+    var svg = svgNode("svg", { viewBox: "0 0 320 200", class: "post-cover", "aria-hidden": "true" });
+    var defs = svgNode("defs", {});
+    var clip = svgNode("clipPath", { id: "cover-clip-" + post.id });
+    clip.appendChild(svgNode("rect", { width: "320", height: "200" }));
+    defs.appendChild(clip);
+    svg.appendChild(defs);
+    svg.setAttribute("clip-path", "url(#cover-clip-" + post.id + ")");
+    svg.appendChild(svgNode("rect", { width: "320", height: "200", fill: "var(--placeholder-bg)" }));
+    svg.appendChild(svgNode("rect", {
+      x: "26", y: "20", width: "268", height: "160", rx: "8",
+      fill: "var(--surface)", stroke: "var(--border)"
+    }));
+    if (seed % 3 === 1) {
+      svg.appendChild(svgNode("rect", { x: "44", y: "40", width: "22", height: "22", rx: "4", fill: "currentColor", opacity: "0.18" }));
+      svg.appendChild(svgNode("rect", { x: "76", y: "46", width: String(titleWidth), height: "10", rx: "2", fill: "currentColor", opacity: "0.8" }));
+    } else if (seed % 3 === 2) {
+      svg.appendChild(svgNode("rect", { x: "40", y: "36", width: "8", height: "128", rx: "2", fill: "currentColor", opacity: "0.18" }));
+      svg.appendChild(svgNode("rect", { x: "60", y: "42", width: String(titleWidth), height: "12", rx: "2", fill: "currentColor", opacity: "0.8" }));
+    } else {
+      svg.appendChild(svgNode("rect", { x: "46", y: "42", width: String(titleWidth), height: "12", rx: "2", fill: "currentColor", opacity: "0.8" }));
+      svg.appendChild(svgNode("rect", { x: "46", y: "62", width: "72", height: "7", rx: "2", fill: "currentColor", opacity: "0.35" }));
+    }
+    for (i = 0; i < lines.length; i += 1) {
+      svg.appendChild(svgNode("rect", {
+        x: seed % 3 === 2 ? "60" : "46",
+        y: String(88 + i * 16),
+        width: String(lines[i]),
+        height: "6",
+        rx: "2",
+        fill: "currentColor",
+        opacity: "0.22"
+      }));
+    }
+    var stamp = svgNode("g", { transform: "rotate(-28 160 100)" });
+    stamp.appendChild(svgNode("rect", { x: "-20", y: "70", width: "360", height: "58", fill: "var(--text)", opacity: "0.08" }));
+    var word = svgNode("text", {
+      x: "160",
+      y: "112",
+      "text-anchor": "middle",
+      fill: "currentColor",
+      "font-size": "52",
+      "font-family": "-apple-system, BlinkMacSystemFont, sans-serif",
+      "font-weight": "600",
+      opacity: "0.78"
+    });
+    word.textContent = "placeholder";
+    stamp.appendChild(word);
+    svg.appendChild(stamp);
+    return svg;
+  }
+
   function createCard(post) {
     var article = document.createElement("article");
     article.className = "post-card";
-    var link = document.createElement("a");
-    link.href = post.url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
+    var control;
+    if (post.status === "coming-soon") {
+      control = document.createElement("button");
+      control.type = "button";
+      control.addEventListener("click", function () { openWritingNote(post); });
+    } else {
+      control = document.createElement("a");
+      control.href = post.url;
+      control.target = "_blank";
+      control.rel = "noopener noreferrer";
+    }
 
     var media = document.createElement("div");
     media.className = "post-media";
@@ -364,14 +451,16 @@
       var img = document.createElement("img");
       img.src = post.image;
       img.alt = post.title;
-      img.width = 640;
-      img.height = 360;
+      img.width = 320;
+      img.height = 200;
       img.loading = "lazy";
       img.decoding = "async";
       img.addEventListener("error", function () {
-        img.replaceWith(createFallback(post.platform));
+        img.replaceWith(post.status === "coming-soon" ? createCover(post) : createFallback(post.platform));
       });
       media.appendChild(img);
+    } else if (post.status === "coming-soon") {
+      media.appendChild(createCover(post));
     } else {
       media.appendChild(createFallback(post.platform));
     }
@@ -380,14 +469,22 @@
     copy.className = "post-copy";
     var meta = document.createElement("p");
     meta.className = "post-meta";
-    var platform = document.createElement("span");
-    platform.textContent = post.platform;
     var time = document.createElement("time");
     time.dateTime = post.date;
     time.textContent = post.formatted;
-    meta.appendChild(platform);
-    meta.appendChild(document.createTextNode(" · "));
+    if (post.status === "published") {
+      var platform = document.createElement("span");
+      platform.textContent = post.platform;
+      meta.appendChild(platform);
+      meta.appendChild(document.createTextNode(" · "));
+    }
     meta.appendChild(time);
+    if (post.status === "coming-soon") {
+      var soon = document.createElement("span");
+      soon.className = "post-soon";
+      soon.textContent = "Coming soon";
+      meta.appendChild(soon);
+    }
 
     var title = document.createElement("h3");
     title.className = "post-title";
@@ -398,16 +495,36 @@
     copy.appendChild(meta);
     copy.appendChild(title);
     copy.appendChild(summary);
-    link.appendChild(media);
-    link.appendChild(copy);
-    article.appendChild(link);
+    control.appendChild(media);
+    control.appendChild(copy);
+    article.appendChild(control);
     return article;
+  }
+
+  function openWritingNote(post) {
+    var dialog = document.getElementById("writing-dialog");
+    var meta = document.getElementById("writing-dialog-meta");
+    var title = document.getElementById("writing-dialog-title");
+    var summary = document.getElementById("writing-dialog-summary");
+    if (!dialog || !meta || !title || !summary || typeof dialog.showModal !== "function") return;
+    meta.textContent = post.formatted + " · Coming soon";
+    title.textContent = post.title;
+    summary.textContent = post.summary;
+    dialog.showModal();
   }
 
   function initWriting() {
     var empty = document.getElementById("writing-empty");
     var grid = document.getElementById("writing-grid");
-    if (!empty || !grid) return;
+    var more = document.getElementById("writing-more");
+    var moreButton = document.getElementById("writing-more-button");
+    var dialog = document.getElementById("writing-dialog");
+    if (!empty || !grid || !more || !moreButton) return;
+    if (dialog) {
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+    }
     fetch("/data/posts.json", { cache: "no-store", headers: { Accept: "application/json" } })
       .then(function (response) {
         if (!response.ok) throw new Error("posts");
@@ -416,25 +533,59 @@
       .then(function (data) {
         if (!Array.isArray(data)) return;
         var posts = [];
+        var seen = {};
         for (var i = 0; i < data.length; i += 1) {
           var post = validatePost(data[i]);
-          if (post) posts.push(post);
+          if (!post || seen[post.id]) continue;
+          seen[post.id] = true;
+          posts.push(post);
         }
         posts.sort(function (a, b) {
-          if (a.date === b.date) return 0;
+          if (a.date === b.date) return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
           return a.date < b.date ? 1 : -1;
         });
         if (posts.length === 0) return;
-        var fragment = document.createDocumentFragment();
-        for (var j = 0; j < posts.length; j += 1) fragment.appendChild(createCard(posts[j]));
-        grid.replaceChildren(fragment);
+        var shown = 0;
+        var pageSize = 3;
+        function syncMore() {
+          more.hidden = posts.length <= pageSize;
+          moreButton.textContent = shown >= posts.length ? "Show less" : "Load more";
+          moreButton.setAttribute("aria-expanded", shown > pageSize ? "true" : "false");
+        }
+        function reveal() {
+          var next = Math.min(shown + pageSize, posts.length);
+          var fragment = document.createDocumentFragment();
+          for (var j = shown; j < next; j += 1) fragment.appendChild(createCard(posts[j]));
+          grid.appendChild(fragment);
+          shown = next;
+          syncMore();
+          onViewportChange();
+        }
+        function collapse() {
+          var cards = grid.querySelectorAll(".post-card");
+          var i;
+          for (i = cards.length - 1; i >= pageSize; i -= 1) cards[i].remove();
+          shown = Math.min(pageSize, posts.length);
+          syncMore();
+          onViewportChange();
+          var reduce = false;
+          try {
+            reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          } catch (error) {}
+          more.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+        }
+        moreButton.addEventListener("click", function () {
+          if (shown >= posts.length) collapse();
+          else reveal();
+        });
         empty.hidden = true;
         grid.hidden = false;
-        onViewportChange();
+        reveal();
       })
       .catch(function () {
         empty.hidden = false;
         grid.hidden = true;
+        more.hidden = true;
       });
   }
 

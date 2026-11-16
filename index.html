@@ -282,6 +282,18 @@
         <p>Notes on AI deployment, product and operating strategy.</p>
         <p class="muted" id="writing-empty">Writing is on the way. For now, I post on <a href="https://www.linkedin.com/in/josephkimhk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
         <div class="writing-grid" id="writing-grid" hidden></div>
+        <div class="writing-more" id="writing-more" hidden>
+          <button class="button" type="button" id="writing-more-button" aria-expanded="false" aria-controls="writing-grid">Load more</button>
+        </div>
+        <dialog class="writing-dialog" id="writing-dialog" aria-labelledby="writing-dialog-title">
+          <form method="dialog">
+            <button type="submit" class="button">Close</button>
+          </form>
+          <p class="post-meta" id="writing-dialog-meta"></p>
+          <h3 id="writing-dialog-title"></h3>
+          <p class="post-summary" id="writing-dialog-summary"></p>
+          <p class="muted">This note is not published yet.</p>
+        </dialog>
       </div>
     </section>
     <section id="background" aria-labelledby="background-heading">
