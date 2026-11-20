@@ -785,13 +785,26 @@ main,
 
 .timeline {
   list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
+  margin: 1.25rem 0 1rem;
+  padding: 1.15rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--card-shadow);
 }
 
 .timeline li {
   padding: 0.85rem 0;
   border-top: 1px solid var(--border);
+}
+
+.timeline li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
 }
 
 /* A visited link drops inherit and brings back the browser underline, so the color is set directly. */
@@ -1040,7 +1053,8 @@ html.enhanced .rocket {
     padding: 1.25rem 1.5rem 0;
   }
 
-  #capabilities .capability {
+  #capabilities .capability,
+  .timeline {
     padding: 1.25rem 1.5rem;
   }
 
